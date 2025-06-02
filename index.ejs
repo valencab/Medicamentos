@@ -1,0 +1,271 @@
+
+<%
+let body = `
+<!-- Hero Section con Carrusel -->
+<div id="heroCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner rounded-3">
+        <div class="carousel-item active">
+            <div class="card text-center p-4 border-0" style="background: linear-gradient(45deg, #667eea, #764ba2); color: white;">
+                <div class="card-body">
+                    <i class="fas fa-heartbeat fa-4x mb-4"></i>
+                    <h1 class="display-4 fw-bold mb-4">Farmacia Digital</h1>
+                    <p class="lead">Tu salud es nuestra prioridad. Gestiona medicamentos de forma segura y eficiente.</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="card text-center p-4 border-0" style="background: linear-gradient(45deg, #11998e, #38ef7d); color: white;">
+                <div class="card-body">
+                    <i class="fas fa-shield-alt fa-4x mb-4"></i>
+                    <h1 class="display-4 fw-bold mb-4">Sistema Seguro</h1>
+                    <p class="lead">Plataforma confiable con autenticación robusta y protección de datos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="card text-center p-4 border-0" style="background: linear-gradient(45deg, #fc466b, #3f5efb); color: white;">
+                <div class="card-body">
+                    <i class="fas fa-user-md fa-4x mb-4"></i>
+                    <h1 class="display-4 fw-bold mb-4">Para Profesionales</h1>
+                    <p class="lead">Herramientas especializadas para instituciones de salud y farmacéuticas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<!-- Features Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <h2 class="text-center mb-5 text-white fw-bold">
+            <i class="fas fa-star me-2"></i>Características Principales
+        </h2>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 border-0 shadow-lg">
+            <div class="card-body text-center p-4">
+                <i class="fas fa-search fa-3x text-primary mb-3"></i>
+                <h5 class="fw-bold">Consulta Rápida</h5>
+                <p class="text-muted">Busca medicamentos por nombre, principio activo o laboratorio de forma instantánea.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 border-0 shadow-lg">
+            <div class="card-body text-center p-4">
+                <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
+                <h5 class="fw-bold">Control de Inventario</h5>
+                <p class="text-muted">Gestión completa de stock con alertas automáticas de productos agotados.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 border-0 shadow-lg">
+            <div class="card-body text-center p-4">
+                <i class="fas fa-mobile-alt fa-3x text-info mb-3"></i>
+                <h5 class="fw-bold">Acceso Móvil</h5>
+                <p class="text-muted">Diseño responsive que se adapta a cualquier dispositivo móvil o tablet.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Datos Curiosos Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <h2 class="text-center mb-4 text-white fw-bold">
+            <i class="fas fa-lightbulb me-2"></i>Datos Curiosos sobre Medicamentos
+        </h2>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card border-0 shadow-lg h-100">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary rounded-circle p-3 me-3">
+                        <i class="fas fa-history text-white"></i>
+                    </div>
+                    <h5 class="mb-0 fw-bold">Historia Farmacéutica</h5>
+                </div>
+                <p class="text-muted">La aspirina, uno de los medicamentos más utilizados, fue sintetizada por primera vez en 1897 y originalmente se extraía de la corteza del sauce blanco.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card border-0 shadow-lg h-100">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-success rounded-circle p-3 me-3">
+                        <i class="fas fa-dna text-white"></i>
+                    </div>
+                    <h5 class="mb-0 fw-bold">Medicina Personalizada</h5>
+                </div>
+                <p class="text-muted">Cada persona metaboliza los medicamentos de manera diferente debido a variaciones genéticas, lo que hace que la dosis efectiva pueda variar hasta un 50% entre individuos.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card border-0 shadow-lg h-100">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-warning rounded-circle p-3 me-3">
+                        <i class="fas fa-clock text-white"></i>
+                    </div>
+                    <h5 class="mb-0 fw-bold">Desarrollo Farmacológico</h5>
+                </div>
+                <p class="text-muted">El desarrollo de un nuevo medicamento toma en promedio 10-15 años y puede costar más de 1,000 millones de dólares desde la investigación inicial hasta su aprobación.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card border-0 shadow-lg h-100">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-danger rounded-circle p-3 me-3">
+                        <i class="fas fa-leaf text-white"></i>
+                    </div>
+                    <h5 class="mb-0 fw-bold">Origen Natural</h5>
+                </div>
+                <p class="text-muted">Aproximadamente el 40% de los medicamentos modernos provienen de productos naturales, incluyendo plantas, hongos y microorganismos marinos.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Noticias Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <h2 class="text-center mb-4 text-white fw-bold">
+            <i class="fas fa-newspaper me-2"></i>Noticias del Sector Farmacéutico
+        </h2>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card border-0 shadow-lg h-100">
+            <div class="card-header bg-primary text-white">
+                <h6 class="mb-0"><i class="fas fa-calendar me-2"></i>15 Enero 2024</h6>
+            </div>
+            <div class="card-body">
+                <h5 class="fw-bold">Nuevas Regulaciones FDA</h5>
+                <p class="text-muted">La FDA implementa nuevas directrices para acelerar la aprobación de medicamentos genéricos, reduciendo costos para pacientes.</p>
+                <small class="text-primary"><i class="fas fa-tag me-1"></i>Regulación</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card border-0 shadow-lg h-100">
+            <div class="card-header bg-success text-white">
+                <h6 class="mb-0"><i class="fas fa-calendar me-2"></i>12 Enero 2024</h6>
+            </div>
+            <div class="card-body">
+                <h5 class="fw-bold">Avance en Inteligencia Artificial</h5>
+                <p class="text-muted">Sistemas de IA ayudan a detectar interacciones medicamentosas peligrosas antes de que ocurran, mejorando la seguridad del paciente.</p>
+                <small class="text-success"><i class="fas fa-tag me-1"></i>Tecnología</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card border-0 shadow-lg h-100">
+            <div class="card-header bg-info text-white">
+                <h6 class="mb-0"><i class="fas fa-calendar me-2"></i>10 Enero 2024</h6>
+            </div>
+            <div class="card-body">
+                <h5 class="fw-bold">Medicamentos Biosimilares</h5>
+                <p class="text-muted">El mercado de biosimilares crece un 25% anual, ofreciendo alternativas más económicas a tratamientos biológicos costosos.</p>
+                <small class="text-info"><i class="fas fa-tag me-1"></i>Mercado</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estadísticas Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card border-0 shadow-lg">
+            <div class="card-body p-5">
+                <h2 class="text-center mb-5 fw-bold">
+                    <i class="fas fa-chart-bar me-2"></i>Estadísticas del Sistema
+                </h2>
+                <div class="row text-center">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="p-4">
+                            <i class="fas fa-pills fa-3x text-primary mb-3"></i>
+                            <h3 class="fw-bold text-primary">1,250+</h3>
+                            <p class="text-muted">Medicamentos Registrados</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="p-4">
+                            <i class="fas fa-users fa-3x text-success mb-3"></i>
+                            <h3 class="fw-bold text-success">500+</h3>
+                            <p class="text-muted">Usuarios Activos</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="p-4">
+                            <i class="fas fa-hospital fa-3x text-warning mb-3"></i>
+                            <h3 class="fw-bold text-warning">75+</h3>
+                            <p class="text-muted">Instituciones Conectadas</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="p-4">
+                            <i class="fas fa-clock fa-3x text-info mb-3"></i>
+                            <h3 class="fw-bold text-info">99.9%</h3>
+                            <p class="text-muted">Tiempo de Actividad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card text-center border-0 shadow-lg">
+            <div class="card-body p-5">
+                <i class="fas fa-rocket fa-4x text-primary mb-4"></i>
+                <h2 class="fw-bold mb-4">¿Listo para comenzar?</h2>
+                <p class="lead mb-4">
+                    Únete a nuestra plataforma y experimenta la gestión farmacéutica del futuro.
+                    Acceso seguro, rápido y confiable para profesionales de la salud.
+                </p>
+                
+                <div class="mt-4">
+                    ${!user ? `
+                        <a href="/register" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-user-plus me-2"></i>Registrarse Ahora
+                        </a>
+                        <a href="/login" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+                        </a>
+                    ` : `
+                        <a href="/medicamentos" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-pills me-2"></i>Ver Medicamentos
+                        </a>
+                        ${user.role === 'admin' ? `
+                            <a href="/admin" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-cogs me-2"></i>Panel Admin
+                            </a>
+                        ` : ''}
+                    `}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+%>
+
+<%- include('layout', { body: body, title: 'Inicio - Farmacia Digital' }) %>

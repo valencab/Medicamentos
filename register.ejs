@@ -1,0 +1,45 @@
+
+<% 
+let body = `
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3><i class="fas fa-user-plus me-2"></i>Registrarse</h3>
+            </div>
+            <div class="card-body">
+                ${error ? `<div class="alert alert-danger">${error}</div>` : ''}
+                
+                <form method="POST" action="/register">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Tipo de Usuario</label>
+                        <select class="form-select" id="role" name="role">
+                            <option value="usuario">Usuario</option>
+                            <option value="admin">Administrador (IPS)</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+                </form>
+                
+                <div class="text-center mt-3">
+                    <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+%>
+
+<%- include('layout', { body: body, title: 'Registrarse' }) %>

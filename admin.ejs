@@ -1,0 +1,153 @@
+
+<% 
+let body = `
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-plus me-2"></i>Agregar Medicamento</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/medicamentos">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="number" step="0.01" class="form-control" id="precio" name="precio" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="stock" class="form-label">Stock</label>
+                        <input type="number" class="form-control" id="stock" name="stock" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="laboratorio" class="form-label">Laboratorio</label>
+                        <input type="text" class="form-control" id="laboratorio" name="laboratorio" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-list me-2"></i>Gestión de Medicamentos</h5>
+            </div>
+            <div class="card-body">
+                ${medicamentos.length === 0 ? `
+                    <div class="text-center py-5">
+                        <i class="fas fa-info-circle fa-3x text-muted mb-3"></i>
+                        <p class="lead">No hay medicamentos registrados</p>
+                    </div>
+                ` : `
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Laboratorio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${medicamentos.map(med => `
+                                    <tr>
+                                        <td>${med.nombre}</td>
+                                        <td>$${med.precio.toLocaleString()}</td>
+                                        <td>
+                                            <span class="badge ${med.stock > 0 ? 'bg-success' : 'bg-danger'}">
+                                                ${med.stock}
+                                            </span>
+                                        </td>
+                                        <td>${med.laboratorio}</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-warning me-1" onclick="editMedicamento('${med._id}', '${med.nombre}', '${med.descripcion}', ${med.precio}, ${med.stock}, '${med.laboratorio}')">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <form method="POST" action="/medicamentos/${med._id}/delete" class="d-inline">
+                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro?')">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para editar -->
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Medicamento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="editForm" method="POST">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="edit_nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="edit_nombre" name="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_descripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="edit_descripcion" name="descripcion" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_precio" class="form-label">Precio</label>
+                        <input type="number" step="0.01" class="form-control" id="edit_precio" name="precio" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_stock" class="form-label">Stock</label>
+                        <input type="number" class="form-control" id="edit_stock" name="stock" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_laboratorio" class="form-label">Laboratorio</label>
+                        <input type="text" class="form-control" id="edit_laboratorio" name="laboratorio" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+function editMedicamento(id, nombre, descripcion, precio, stock, laboratorio) {
+    document.getElementById('editForm').action = '/medicamentos/' + id + '/edit';
+    document.getElementById('edit_nombre').value = nombre;
+    document.getElementById('edit_descripcion').value = descripcion;
+    document.getElementById('edit_precio').value = precio;
+    document.getElementById('edit_stock').value = stock;
+    document.getElementById('edit_laboratorio').value = laboratorio;
+    
+    new bootstrap.Modal(document.getElementById('editModal')).show();
+}
+</script>
+`;
+%>
+
+<%- include('layout', { body: body, title: 'Panel de Administración' }) %>

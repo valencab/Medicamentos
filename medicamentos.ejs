@@ -1,0 +1,40 @@
+
+<% 
+let body = `
+<div class="card">
+    <div class="card-header">
+        <h3><i class="fas fa-pills me-2"></i>Medicamentos Disponibles</h3>
+    </div>
+    <div class="card-body">
+        ${medicamentos.length === 0 ? `
+            <div class="text-center py-5">
+                <i class="fas fa-info-circle fa-3x text-muted mb-3"></i>
+                <p class="lead">No hay medicamentos registrados</p>
+            </div>
+        ` : `
+            <div class="row">
+                ${medicamentos.map(med => `
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">${med.nombre}</h5>
+                                <p class="card-text">${med.descripcion}</p>
+                                <p class="text-muted mb-1"><strong>Laboratorio:</strong> ${med.laboratorio}</p>
+                                <p class="text-muted mb-1"><strong>Precio:</strong> $${med.precio.toLocaleString()}</p>
+                                <p class="mb-0">
+                                    <span class="badge ${med.stock > 0 ? 'bg-success' : 'bg-danger'}">
+                                        ${med.stock > 0 ? `Stock: ${med.stock}` : 'Agotado'}
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `}
+    </div>
+</div>
+`;
+%>
+
+<%- include('layout', { body: body, title: 'Medicamentos' }) %>
