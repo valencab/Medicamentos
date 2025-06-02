@@ -131,3 +131,15 @@ dist
 
 # Replit debugger
 .breakpoints
+
+
+
+# Evita subir dependencias pesadas
+node_modules/
+
+# Evita subir tus claves privadas
+.env
+
+# Archivos del sistema (opcional)
+.DS_Store
+Thumbs.db
